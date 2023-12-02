@@ -13,6 +13,7 @@
       if (n === 1) return 'I';
       if (n === 2) return 'II';
 	  if (n === 3) return 'III';
+	  if (n === 4) return 'IV';
     }
 
     QUnit.module('arabToRoman test', function () {
@@ -26,6 +27,10 @@
 	  
 	  QUnit.test('Three', function (assert) {
         assert.equal(arabToRoman(3), 'III');
+      });
+	  
+	  QUnit.test('Three', function (assert) {
+        assert.equal(arabToRoman(4), 'IV');
       });
     });
   </script>
