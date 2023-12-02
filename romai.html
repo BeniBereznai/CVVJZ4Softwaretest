@@ -10,54 +10,94 @@
   <script>
     // Arab to Roman num
     function arabToRoman(n) {
-      if (n < 1 || n > 50) {
-        return 'Number out of range';
-      }
+  if (n < 1 || n > 100) {
+    return 'Number out of range';
+  }
 
-      if (n < 4) {
-        return 'I'.repeat(n);
-      } else if (n === 4) {
-        return 'IV';
-      } else if (n < 9) {
-        return 'V' + 'I'.repeat(n - 5);
-      } else if (n === 9) {
-        return 'IX';
-      } else if (n < 14) {
-        return 'X' + 'I'.repeat(n - 10);
-      } else if (n === 14) {
-        return 'XIV';
-      } else if (n < 19) {
-        return 'XV' + 'I'.repeat(n - 15);
-      } else if (n === 19) {
-        return 'XIX';
-      } else if (n < 24) {
-        return 'XX' + 'I'.repeat(n - 20);
-      } else if (n === 24) {
-        return 'XXIV';
-      } else if (n < 29) {
-        return 'XXV' + 'I'.repeat(n - 25);
-      } else if (n === 29) {
-        return 'XXIX';
-      } else if (n < 34) {
-        return 'XXX' + 'I'.repeat(n - 30);
-      } else if (n === 34) {
-        return 'XXXIV';
-      } else if (n < 39) {
-        return 'XXXV' + 'I'.repeat(n - 35);
-      } else if (n === 39) {
-        return 'XXXIX';
-      } else if (n < 44) {
-        return 'XL' + 'I'.repeat(n - 40);
-      } else if (n === 44) {
-        return 'XLIV';
-      } else if (n < 49) {
-        return 'XLV' + 'I'.repeat(n - 45);
-      } else if (n === 49) {
-        return 'XLIX';
-      } else {
-        return 'L';
-      }
-    }
+  if (n < 4) {
+    return 'I'.repeat(n);
+  } else if (n === 4) {
+    return 'IV';
+  } else if (n < 9) {
+    return 'V' + 'I'.repeat(n - 5);
+  } else if (n === 9) {
+    return 'IX';
+  } else if (n < 14) {
+    return 'X' + 'I'.repeat(n - 10);
+  } else if (n === 14) {
+    return 'XIV';
+  } else if (n < 19) {
+    return 'XV' + 'I'.repeat(n - 15);
+  } else if (n === 19) {
+    return 'XIX';
+  } else if (n < 24) {
+    return 'XX' + 'I'.repeat(n - 20);
+  } else if (n === 24) {
+    return 'XXIV';
+  } else if (n < 29) {
+    return 'XXV' + 'I'.repeat(n - 25);
+  } else if (n === 29) {
+    return 'XXIX';
+  } else if (n < 34) {
+    return 'XXX' + 'I'.repeat(n - 30);
+  } else if (n === 34) {
+    return 'XXXIV';
+  } else if (n < 39) {
+    return 'XXXV' + 'I'.repeat(n - 35);
+  } else if (n === 39) {
+    return 'XXXIX';
+  } else if (n < 44) {
+    return 'XL' + 'I'.repeat(n - 40);
+  } else if (n === 44) {
+    return 'XLIV';
+  } else if (n < 49) {
+    return 'XLV' + 'I'.repeat(n - 45);
+  } else if (n === 49) {
+    return 'XLIX';
+  } else if (n < 54) {
+    return 'L' + 'I'.repeat(n - 50);
+  } else if (n === 54) {
+    return 'LIV';
+  } else if (n < 59) {
+    return 'LV' + 'I'.repeat(n - 55);
+  } else if (n === 59) {
+    return 'LIX';
+  } else if (n < 64) {
+    return 'LX' + 'I'.repeat(n - 60);
+  } else if (n === 64) {
+    return 'LXIV';
+  } else if (n < 69) {
+    return 'LXV' + 'I'.repeat(n - 65);
+  } else if (n === 69) {
+    return 'LXIX';
+  } else if (n < 74) {
+    return 'LXX' + 'I'.repeat(n - 70);
+  } else if (n === 74) {
+    return 'LXXIV';
+  } else if (n < 79) {
+    return 'LXXV' + 'I'.repeat(n - 75);
+  } else if (n === 79) {
+    return 'LXXIX';
+  } else if (n < 84) {
+    return 'LXXX' + 'I'.repeat(n - 80);
+  } else if (n === 84) {
+    return 'LXXXIV';
+  } else if (n < 89) {
+    return 'LXXXV' + 'I'.repeat(n - 85);
+  } else if (n === 89) {
+    return 'LXXXIX';
+  } else if (n < 94) {
+    return 'XC' + 'I'.repeat(n - 90);
+  } else if (n === 94) {
+    return 'XCIV';
+  } else if (n < 99) {
+    return 'XCV' + 'I'.repeat(n - 95);
+  } else if (n === 99) {
+    return 'XCIX';
+  } else {
+    return 'C';
+  }
+}
 
     QUnit.module('arabToRoman test', function () {
       QUnit.test('one', function (assert) {
@@ -128,6 +168,9 @@
       QUnit.test('fourty-one', function (assert) {
         assert.equal(arabToRoman(42), 'XLII');
       });
+      QUnit.test('fourty-one', function (assert) {
+        assert.equal(arabToRoman(46), 'XLVI');
+      });
 
       QUnit.test('fourty-seven', function (assert) {
         assert.equal(arabToRoman(47), 'XLVII');
@@ -139,6 +182,18 @@
 
       QUnit.test('fifty', function (assert) {
         assert.equal(arabToRoman(50), 'L');
+      });
+      QUnit.test('Seventy-two', function (assert) {
+        assert.equal(arabToRoman(72), 'LXXII');
+      });
+      QUnit.test('eighty-eight', function (assert) {
+        assert.equal(arabToRoman(88), 'LXXXVIII');
+      });
+      QUnit.test('ninety-three', function (assert) {
+        assert.equal(arabToRoman(93), 'XCIII');
+      });
+      QUnit.test('one hundred', function (assert) {
+        assert.equal(arabToRoman(100), 'C');
       });
     });
   </script>
