@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Test Suite</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.20.0.css">
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="https://code.jquery.com/qunit/qunit-2.20.0.js"></script>
+  <div id="qunit-fixture"></div>
+  <script>
+    function Step(start, orientation, command){
+        if(orientation == 'N' && command =='f'){
+            return [start[0]-1, start[1]]
+        }
+        if(orientation == 'N' && command =='b'){
+            return [start[0]+1, start[1]]
+        }
+    }
+
+    QUnit.module('Test Step', function() {
+      QUnit.test('North forward', function(assert) {
+        assert.deepEqual(Step([2,4],'N','f'), [1,4]);
+      });
+      QUnit.test('North backward', function(assert) {
+        assert.deepEqual(Step([2,4],'N','b'), [3,4]);
+      });
+    });
+  </script>
+</body>
+
