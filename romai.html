@@ -10,7 +10,7 @@
   <script>
     // Arab to Roman num
     function arabToRoman(n) {
-      if (n < 1 || n > 19) {
+      if (n < 1 || n > 50) {
         return 'Number out of range';
       }
 
@@ -28,10 +28,42 @@
         return 'XIV';
       } else if (n < 19) {
         return 'XV' + 'I'.repeat(n - 15);
-      } else {
+      } else if (n === 19) {
         return 'XIX';
+      } else if (n < 24) {
+        return 'XX' + 'I'.repeat(n - 20);
+      } else if (n === 24) {
+        return 'XXIV';
+      } else if (n < 29) {
+        return 'XXV' + 'I'.repeat(n - 25);
+      } else if (n === 29) {
+        return 'XXIX';
+      } else if (n < 34) {
+        return 'XXX' + 'I'.repeat(n - 30);
+      } else if (n === 34) {
+        return 'XXXIV';
+      } else if (n < 39) {
+        return 'XXXV' + 'I'.repeat(n - 35);
+      } else if (n === 39) {
+        return 'XXXIX';
+      } else if (n < 44) {
+        return 'XL' + 'I'.repeat(n - 40);
+      } else if (n === 44) {
+        return 'XLIV';
+      } else if (n < 49) {
+        return 'XLV' + 'I'.repeat(n - 45);
+      } else if (n === 49) {
+        return 'XLIX';
+      } else {
+        return 'L';
       }
     }
+
+    QUnit.module('arabToRoman test', function () {
+      QUnit.test('one', function (assert) {
+        assert.equal(arabToRoman(1), 'I');
+      });
+    });
 
     QUnit.module('arabToRoman test', function () {
       QUnit.test('one', function (assert) {
@@ -78,29 +110,35 @@
         assert.equal(arabToRoman(11), 'XI');
       });
 
-      QUnit.test('twelve', function (assert) {
-        assert.equal(arabToRoman(12), 'XII');
-      });
-      QUnit.test('thirteen', function (assert) {
-        assert.equal(arabToRoman(13), 'XIII');
-      });
-      QUnit.test('fourteen', function (assert) {
-        assert.equal(arabToRoman(14), 'XIV');
-      });
-      QUnit.test('fifteen', function (assert) {
-        assert.equal(arabToRoman(15), 'XV');
-      });
-      QUnit.test('Sixteen', function (assert) {
-        assert.equal(arabToRoman(16), 'XVI');
-      });
-      QUnit.test('Seventeen', function (assert) {
-        assert.equal(arabToRoman(17), 'XVII');
-      });
-      QUnit.test('Eighteen', function (assert) {
-        assert.equal(arabToRoman(18), 'XVIII');
-      });
       QUnit.test('NineTeen', function (assert) {
         assert.equal(arabToRoman(19), 'XIX');
+      });
+
+      QUnit.test('twenty', function (assert) {
+        assert.equal(arabToRoman(20), 'XX');
+      });
+
+      QUnit.test('fourty', function (assert) {
+        assert.equal(arabToRoman(40), 'XL');
+      });
+
+      QUnit.test('fourty-one', function (assert) {
+        assert.equal(arabToRoman(41), 'XLI');
+      });
+      QUnit.test('fourty-one', function (assert) {
+        assert.equal(arabToRoman(42), 'XLII');
+      });
+
+      QUnit.test('fourty-seven', function (assert) {
+        assert.equal(arabToRoman(47), 'XLVII');
+      });
+
+      QUnit.test('fouty-nine', function (assert) {
+        assert.equal(arabToRoman(49), 'XLIX');
+      });
+
+      QUnit.test('fifty', function (assert) {
+        assert.equal(arabToRoman(50), 'L');
       });
     });
   </script>
