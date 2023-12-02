@@ -10,11 +10,12 @@
   <script>
     // Arab to Roman num
     function arabToRoman(n) {
-  if (n < 1 || n > 501) {
+  if (n < 1 || n > 10000) {
     return 'Number out of range';
   }
 
   const romanSymbols = [
+    { value: 1000, symbol: 'M' },
     { value: 500, symbol: 'D' },
     { value: 100, symbol: 'C' },
     { value: 90, symbol: 'XC' },
@@ -142,6 +143,18 @@
 
       QUnit.test('Fivehundred ', function (assert) {
         assert.equal(arabToRoman(500), 'D');
+      });
+
+      QUnit.test('Thousand', function (assert) {
+        assert.equal(arabToRoman(1000), 'M');
+      });
+
+      QUnit.test('ThreeThousand and thirty-eight', function (assert) {
+        assert.equal(arabToRoman(3038), 'MMMXXXVIII');
+      });
+
+      QUnit.test('Eightthousand-Sixhundred and sixty-nine', function (assert) {
+        assert.equal(arabToRoman(8669), 'MMMMMMMMDCLXIX');
       });
     });
   </script>
